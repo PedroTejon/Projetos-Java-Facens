@@ -7,6 +7,19 @@ public class Curso {
     private int duracao;
     private UUID codigo;
     
+    public Curso(UUID codigo) {
+        this.codigo = codigo;
+    }
+    
+    public Curso(String nome, int duracao, UUID codigo) {
+        this(codigo);
+        this.nome = nome;
+        this.duracao = duracao;
+    }
+    
+    public Curso() {
+    }
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
