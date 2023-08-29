@@ -9,6 +9,7 @@ public class Funcionario {
     private float salario;
     private float valorDesconto;
 
+    
     public int getCracha() {
         return cracha;
     }
@@ -63,6 +64,6 @@ public class Funcionario {
     }
     
     public String imprimir(){
-        return "Crachá: %d\nNome: %s\nTipo Vínculo: %c\nSalário: %.2f\nDesconto: %f\nValor a receber: %.2f".formatted(cracha, nome, tipoVinculo, tipoVinculo == 'H' ? valorHora * qntHora: salario, valorDesconto, calcularValorSalario());
+        return "Crachá: %d\nNome: %s\nTipo Vínculo: %c\nSalário: %.2f\nDesconto: %.2f\nValor a receber: %.2f".formatted(cracha, nome, tipoVinculo, tipoVinculo == 'H' ? valorHora * qntHora: salario, valorDesconto, calcularValorSalario());
     }
 }
