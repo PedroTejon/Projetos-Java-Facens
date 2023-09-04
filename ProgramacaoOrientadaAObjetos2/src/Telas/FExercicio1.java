@@ -35,6 +35,7 @@ public class FExercicio1 extends javax.swing.JFrame {
         jLabel2.setText("CPF");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorderPainted(false);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -86,9 +87,7 @@ public class FExercicio1 extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(184, 184, 184))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,22 +144,41 @@ public class FExercicio1 extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         if (pessoaCadastrada != null)
-        JOptionPane.showMessageDialog(this, pessoaCadastrada.imprimir());
+            JOptionPane.showMessageDialog(this, pessoaCadastrada.imprimir());
         else
-        JOptionPane.showMessageDialog(this, "Nenhuma pessoa cadastrada ainda.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Nenhuma pessoa cadastrada ainda.", "Erro", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         this.pessoaCadastrada = new Pessoa();
 
-        this.pessoaCadastrada.setNome(txtNome.getText());
-        this.pessoaCadastrada.setCpf(txtCPF.getText());
+        if (txtNome.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada de nome vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else
+            this.pessoaCadastrada.setNome(txtNome.getText());
+        
+        if (txtCPF.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada de CPF vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else
+            this.pessoaCadastrada.setCpf(txtCPF.getText());
 
         char[] sexos = {'M', 'F', 'O'};
         this.pessoaCadastrada.setSexo(sexos[cmbSexo.getSelectedIndex()]);
 
-        this.pessoaCadastrada.setIdade(Integer.parseInt(txtIdade.getText()));
-
+        if (txtIdade.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada de idade vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            try {
+                this.pessoaCadastrada.setIdade(Integer.parseInt(txtIdade.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Entrada de idade inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
         JOptionPane.showMessageDialog(this, "Salvo com sucesso", "Atenção", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSalvarActionPerformed
 

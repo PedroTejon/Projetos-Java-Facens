@@ -49,18 +49,18 @@ public class Aluno {
     public void setAf(float af) {
         this.af = af;
     }
-    
+
     public float calcularMedia() {
         return (float)((ac1 * 0.15) + (ac2 * 0.3) + (ag * 0.1) + (af * 0.45));
     }
-    
+
     public String verificarAprovacao(){
         if (calcularMedia() >= 5) 
             return "Aprovado";
         else
             return "Reprovado";
     }
-        
+
     public String imprimir(){
         return "RA: %d\nNome: %s\nAC1: %.2f\nAC2: %.2f\nAG: %.2f\nAF: %.2f\nMédia: %.2f\nSituação: %s".formatted(this.ra, this.nome, this.ac1, this.ac2, this.ag, this.af, calcularMedia(), verificarAprovacao());
     }

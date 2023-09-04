@@ -25,10 +25,10 @@ public class FExercicio2 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtAC1 = new javax.swing.JFormattedTextField();
-        txtAC2 = new javax.swing.JFormattedTextField();
-        txtAG = new javax.swing.JFormattedTextField();
-        txtAF = new javax.swing.JFormattedTextField();
+        txtAC1 = new javax.swing.JTextField();
+        txtAC2 = new javax.swing.JTextField();
+        txtAG = new javax.swing.JTextField();
+        txtAF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,30 +60,6 @@ public class FExercicio2 extends javax.swing.JFrame {
 
         jLabel8.setText("AF");
 
-        try {
-            txtAC1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtAC2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtAG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtAF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,7 +90,7 @@ public class FExercicio2 extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(62, 62, 62)
                         .addComponent(jLabel8)
-                        .addContainerGap(119, Short.MAX_VALUE))
+                        .addContainerGap(107, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtAC1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -139,7 +115,7 @@ public class FExercicio2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -155,7 +131,7 @@ public class FExercicio2 extends javax.swing.JFrame {
                             .addComponent(txtAC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
                     .addComponent(btnMostrar))
@@ -185,12 +161,71 @@ public class FExercicio2 extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         this.alunoCadastrado = new Aluno();
                 
-        this.alunoCadastrado.setRa(Integer.parseInt(txtRA.getText()));
-        this.alunoCadastrado.setNome(txtNome.getText());
-        this.alunoCadastrado.setAc1(Float.parseFloat(txtAC1.getText()));
-        this.alunoCadastrado.setAc2(Float.parseFloat(txtAC2.getText()));
-        this.alunoCadastrado.setAg(Float.parseFloat(txtAG.getText()));
-        this.alunoCadastrado.setAf(Float.parseFloat(txtAF.getText()));
+        if (txtRA.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada do RA vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            try {
+                this.alunoCadastrado.setRa(Integer.parseInt(txtRA.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Entrada de RA inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        if (txtNome.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada de nome vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else
+            this.alunoCadastrado.setNome(txtNome.getText());
+        
+        if (txtAC1.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada da nota da AC1 vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            try {
+                this.alunoCadastrado.setAc1(Float.parseFloat(txtAC1.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Entrada da nota da AC1 inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        if (txtAC2.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada da nota da AC2 vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            try {
+                this.alunoCadastrado.setAc2(Float.parseFloat(txtAC2.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Entrada da nota da AC2 inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        if (txtAG.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada da nota da AG vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            try {
+                this.alunoCadastrado.setAg(Float.parseFloat(txtAG.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Entrada da nota da AG inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        if (txtAF.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Entrada da nota da AF vazia", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            try {
+                this.alunoCadastrado.setAf(Float.parseFloat(txtAF.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Entrada da nota da AF inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
 
         JOptionPane.showMessageDialog(this, "Salvo com sucesso", "Atenção", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -221,10 +256,10 @@ public class FExercicio2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JFormattedTextField txtAC1;
-    private javax.swing.JFormattedTextField txtAC2;
-    private javax.swing.JFormattedTextField txtAF;
-    private javax.swing.JFormattedTextField txtAG;
+    private javax.swing.JTextField txtAC1;
+    private javax.swing.JTextField txtAC2;
+    private javax.swing.JTextField txtAF;
+    private javax.swing.JTextField txtAG;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtRA;
     // End of variables declaration//GEN-END:variables

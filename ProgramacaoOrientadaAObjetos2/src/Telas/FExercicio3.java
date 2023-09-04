@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import programacaoorientadaaobjetos2.Funcionario;
 
 public class FExercicio3 extends javax.swing.JFrame {
-    private Funcionario funcionarioCadastrado;
+        private Funcionario funcionarioCadastrado;
     
     public FExercicio3() {
         initComponents();
@@ -220,9 +220,9 @@ public class FExercicio3 extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         if (funcionarioCadastrado != null)
-        JOptionPane.showMessageDialog(this, funcionarioCadastrado.imprimir());
+            JOptionPane.showMessageDialog(this, funcionarioCadastrado.imprimir());
         else
-        JOptionPane.showMessageDialog(this, "Nenhuma funcionário cadastrado ainda.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Nenhuma funcionário cadastrado ainda.", "Erro", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -233,13 +233,13 @@ public class FExercicio3 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Entrada de RA vazia", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             } else
-            this.funcionarioCadastrado.setCracha(Integer.parseInt(txtRA.getText()));
+                this.funcionarioCadastrado.setCracha(Integer.parseInt(txtRA.getText()));
 
             if (txtNome.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Entrada de nome vazia", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             } else
-            this.funcionarioCadastrado.setNome(txtNome.getText());
+                this.funcionarioCadastrado.setNome(txtNome.getText());
 
             this.funcionarioCadastrado.setTipoVinculo(((String)cmbTipo.getSelectedItem()).charAt(0));
 
