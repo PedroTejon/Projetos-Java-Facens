@@ -35,11 +35,7 @@ public class Main {
                 case 2:
                     String msg = "";
                     for (Pessoa p : listaPessoa) {
-                        if (p instanceof PessoaFisica) {
-                            msg += ((PessoaFisica) p).imprimir() + "------\n";
-                        } else {
-                            msg += ((PessoaJuridica) p).imprimir() + "------\n";
-                        }
+                        msg += p + "\n------\n";
                     }
                     break;
                 case 3:

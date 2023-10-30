@@ -34,10 +34,17 @@ public class PessoaFisica extends Pessoa {
         this.cpf = cpf;
     }
     
+    @Override
+    public String toString() {
+        return "CPF: " + cpf +
+                "\nNome: " + nome + "\n" +
+                super.toString();
+    }
+    
+    @Override
     public String imprimir() {
         return "CPF: " + cpf +
-                "\nNome: " + nome +
-                "\nE-mail: " + getEmail() +
-                "\nCelular: " + getCelular();
+                "\nNome: " + nome + "\n" +
+                super.imprimir();
     }
 }

@@ -40,6 +40,6 @@ public class Aluno {
     }
 
     public String toString() {
-        return "RA: %s\nNome: %s\nCurso: %s".format(ra, nome, curso);
+        return "RA: " + ra + "\nNome: " + nome + "\nCurso: " + curso;
     }
 }

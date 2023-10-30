@@ -21,6 +21,6 @@ public class AlunoPosGraduacao extends Aluno {
 
     @Override
     public String toString() {
-        return "RA: %s\nNome: %s\nCurso: %s\nAno de Conclusão Graduação: %s".format(this.getRa(), this.getNome(), this.getCurso(), anoConclusaoGraduacao);
+        return super.toString() + "\nAno de Conclusão Graduação: " + anoConclusaoGraduacao;
     }
 }

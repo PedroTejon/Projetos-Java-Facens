@@ -34,10 +34,17 @@ public class PessoaJuridica extends Pessoa {
         this.cnpj = cnpj;
     }
     
+    @Override
+    public String toString() {
+        return "CNPJ: " + cnpj +
+                "\nRazão Social: " + razao + "\n" + 
+                super.toString();
+    }
+    
+    @Override
     public String imprimir() {
         return "CNPJ: " + cnpj +
-                "\nRazão Social: " + razao +
-                "\nE-mail: " + getEmail() +
-                "\nCelular: " + getCelular();
+                "\nRazão Social: " + razao + "\n" + 
+                super.imprimir();
     }
 }

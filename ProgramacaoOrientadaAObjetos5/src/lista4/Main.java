@@ -22,22 +22,19 @@ public class Main {
                     if (opc == 1) {
                         conclusao = JOptionPane.showInputDialog("Ano de Conclusão do Ensino Médio: ");
                                 
-                        alunos.add(new AlunoGraduacao(ra, nome, curso, conclusao));
+                        alunos.add(new AlunoGraduacao(conclusao, nome, curso, ra));
                     } else {
                         conclusao = JOptionPane.showInputDialog("Ano de Conclusão da Graduação: ");
                                 
-                        alunos.add(new AlunoPosGraduacao(ra, nome, curso, conclusao));
+                        alunos.add(new AlunoPosGraduacao(conclusao, ra, nome, curso));
                     }
                     break;
                 case 2:
                     String msg = "";
-                    for (Aluno aluno : alunos) {
-                        if (aluno instanceof AlunoGraduacao) {
-                            msg += ((AlunoGraduacao) aluno).toString() + "---\n";
-                        } else {
-                            msg += ((AlunoPosGraduacao) aluno).toString() + "---\n";
-                        }
+                    for (Aluno aluno : alunos) {                        
+                        msg += aluno.toString() + "\n---\n";
                     }
+                    JOptionPane.showMessageDialog(null, msg);
                     break;
                 case 3:
                     break;
