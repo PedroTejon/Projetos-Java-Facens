@@ -18,10 +18,10 @@ public class ManagerFactory {
     public static EntityManager getEntityManager() {
         if (emf == null) {
             try{
-            emf = Persistence.createEntityManagerFactory("CodeFirstPU");
+                emf = Persistence.createEntityManagerFactory("CodeFirstPU");
             }
             catch(Exception e){
-                 e.printStackTrace();
+                e.printStackTrace();
             }
         }
         return emf.createEntityManager();

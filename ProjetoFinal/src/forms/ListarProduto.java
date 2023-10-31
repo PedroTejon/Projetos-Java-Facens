@@ -4,10 +4,6 @@
  */
 package forms;
 
-/**
- *
- * @author anagi
- */
 public class ListarProduto extends javax.swing.JInternalFrame {
 
     private static ListarProduto myInstance;

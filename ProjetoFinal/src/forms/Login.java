@@ -8,10 +8,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author anagi
- */
 public class Login extends javax.swing.JDialog {
 
     private static boolean autenticado = false;
