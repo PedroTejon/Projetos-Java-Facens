@@ -149,7 +149,7 @@ public class Login extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().equals("rafael")){
+        if(jTextField1.getText().equals("pedro")){
             autenticado = true;
             dispose();
         }

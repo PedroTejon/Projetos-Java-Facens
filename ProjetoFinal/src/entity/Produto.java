@@ -4,6 +4,10 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Produto.findAll", query = "SELECT p FROM Produto p"),
+    @NamedQuery(name = "Produto.findByCodigo", query = "SELECT p FROM Produto p WHERE p.id = :codigo")
+})
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,8 +60,6 @@ public class Produto implements Serializable {
     public void setCategoriaProduto(CategoriaProduto categoriaProduto) {
         this.categoriaProduto = categoriaProduto;
     }
-
-    
     
     public Integer getId() {
         return id;

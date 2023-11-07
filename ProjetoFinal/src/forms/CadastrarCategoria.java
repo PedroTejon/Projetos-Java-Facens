@@ -75,6 +75,8 @@ public class CadastrarCategoria extends javax.swing.JDialog {
         
         categoriaDAO.inserir(categoria);
         JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+        
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {

@@ -75,7 +75,7 @@ public class CategoriaProduto implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.CategoriaProduto[ id=" + id + " ]";
+        return  id + " - " + descricao;
     }
     
 }

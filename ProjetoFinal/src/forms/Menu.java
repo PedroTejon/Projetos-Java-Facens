@@ -5,7 +5,7 @@
 package forms;
 
 import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
-        
+
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -18,7 +18,6 @@ public class Menu extends javax.swing.JFrame {
         if(login.getAutenticado()){
             initComponents();
         }
-        
     }
 
     /**
@@ -139,12 +138,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-          ListarCategoria telaCat = ListarCategoria.getInstance();
+        ListarCategoria telaCat = ListarCategoria.getInstance();
         telaCat.pack();
         if(!telaCat.isVisible()){
             jDesktopPane2.add(telaCat);
             telaCat.setVisible(true);
-
         }
         else{
             telaCat.moveToFront();
@@ -152,12 +150,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-         ListarProduto telaProd = ListarProduto.getInstance();
+        ListarProduto telaProd = ListarProduto.getInstance();
         telaProd.pack();
         if(!telaProd.isVisible()){
             jDesktopPane2.add(telaProd);
             telaProd.setVisible(true);
-
         }
         else{
             telaProd.moveToFront();
